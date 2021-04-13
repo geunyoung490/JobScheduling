@@ -1,14 +1,16 @@
 //2021.04.10 오름차순 정렬코드 작성, 출력
-//2021.04.12 while문 미완성 출력 이상하게 나옴...
+//2021.04.12 while문 미완성 출력 이상하게 나옴...우선순위큐로 다시 짜야 할 듯
+//2021.04.13 수정 필요할 듯 하다.
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class JobScheduling {
 
 
     public static void main(String[] args) {
 
-        int L [][] = {
+      int L [][] = {
                 {7,8},{3,7},{1,5},{5,9},{0,2},{6,8},{1,6}
                 //{시작시간,종료시간}
         };
@@ -25,27 +27,31 @@ public class JobScheduling {
 
         System.out.println("주어진 작업들을 정렬 후 출력\n---------------");
 
+        PriorityQueue<Integer> pq = new PriorityQueue<>(); //우선순위큐를 만들어준다.
+        pq.add(L[0][1]); //큐에 첫작업의 종료시간을 넣는다.
+
+
         for(int i = 0; i< L.length;i++) {
             System.out.println(L[i][0]+ " "+ L[i][1]);
         }
 
-        int counts = 1;
-        int i = 0;
-        int s = 0; // 작업시작시간 저장변수
-        while(i <L.length){//L배열의 길이만큼 while문 돌린다.
+        //peek은 첫번째 값을 반환
+        //poll은 첫번째 값을 반환하고 버림 -> peek하고 remove해버린다
 
-            if(L[s][1] <= L[i][0]) {//만약 종료시간보다 지금의 시작시간이 더 뒤의 일 일 경우.
-                counts++;
-                // 처음 작업의 종료시간보다 다음 작업의 시작 시간이 같거나 크면 작업 가능
-                s = i;
+        int i = 1;
+        while( i < L.length) {
+
+            if(pq.peek() <= L[i][0]){
+                pq.poll(); //작업의 시작시간이 큐의 peek 값보다 작거나 같으면, pq에서 하나 빼서 버린다.
             }
+            pq.add(L[i][1]); //현재 종료시간을 다시 pq에 넣어준다.
 
-            i++; // 루프 돌아갈 때마다 올림
+            i++;// 루프횟수를 알맞게 돌리기 위한 i 1증가
+
         }
 
-
         System.out.println("필요한 기계 대수는\n----------------");
-        System.out.println(counts);
+        System.out.println(pq.size());//pq에 남아있는 것들의 개수가 필요한 기계의 대수이다.
 
 
 
