@@ -13,24 +13,15 @@ class Machine{
 public class JobScheduling {
     private ArrayList<Machine> m;
 
-    public void schedule(){
-        ArrayList<Job> L;
-        m = new ArrayList<Machine>();
-        int index = 0;
-        Job job;
-
-        while(index < L.size()){
-            job = L.get(index);
-
-        }
-
-    }
-    public static void main(String[] args){
-        ArrayList<Job> L = new ArrayList<> ();
-        Collections.sort(L);//오름차순 정렬
-
-        for(int s=0 ; s<L.size(); s++){
-            System.out.println(L.get(s));
-        }
-    }
+   int [][] L = {{7,8}, {3,7},{1,5},{5,9},{0,2},{6,8},{1,6}};
+   public void schedule(){
+   ArrayList<Job> L;
+   int index = 0;
+   }
+   Collection.sort(L,new Comparator<Job>(){
+   @Override
+   public int compare(job o1,job o2){
+   return o1.getStart() - o2.getStart();
+   }
+   )};
 }
