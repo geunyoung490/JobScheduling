@@ -31,7 +31,7 @@ public class JobScheduling {
 
         int counts = 1;
         int i = 0;
-        int s = 0; // 강의시작시간 저장변수
+        int s = 0; // 작업시작시간 저장변수
         while(i <L.length){//L배열의 길이만큼 while문 돌린다.
 
             if(L[s][1] <= L[i][0]) {//만약 종료시간보다 지금의 시작시간이 더 뒤의 일 일 경우.
