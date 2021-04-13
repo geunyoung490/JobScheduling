@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Job{
+    int s,f;
+    Job(int s, int f){
+        this.s = s;
+        this.f = f;
+    }
+}
+class Machine{
+
+}
+public class JobScheduling {
+    private ArrayList<Machine> m;
+
+    public void schedule(){
+        ArrayList<Job> L;
+        m = new ArrayList<Machine>();
+        int index = 0;
+        Job job;
+
+        while(index < L.size()){
+            job = L.get(index);
+
+        }
+
+    }
+    public static void main(String[] args){
+        ArrayList<Job> L = new ArrayList<> ();
+        Collections.sort(L);//오름차순 정렬
+
+        for(int s=0 ; s<L.size(); s++){
+            System.out.println(L.get(s));
+        }
+    }
+}
