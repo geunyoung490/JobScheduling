@@ -1,58 +1,99 @@
-//2021.04.10 오름차순 정렬코드 작성, 출력
-//2021.04.12 while문 미완성 출력 이상하게 나옴...우선순위큐로 다시 짜야 할 듯
-//2021.04.13 수정 필요할 듯 하다.
+import java.util.*;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
+
+class Job {
+    int s;
+    int f;
+    public Job(int i, int i1) {
+        this.s = s;
+        this.f = f;
+    }
+
+    //Line 1. 시작시간의 오름차순으로 정렬한 작업리스트 L
+    static Comparator<Job> comparator = new Comparator<Job>() {
+        @Override
+        public int compare(Job o1, Job o2) {
+            if(o1.s==o2.s) return Integer.compare(o1.f,o2.f);
+            else return Integer.compare(o1.s,o2.s);
+        }
+    };
+
+}
+
+
+/*
+class machine {
+    int machine(){
+
+
+    }
+}
+
+ */
 
 public class JobScheduling {
 
 
     public static void main(String[] args) {
 
-      int L [][] = {
-                {7,8},{3,7},{1,5},{5,9},{0,2},{6,8},{1,6}
-                //{시작시간,종료시간}
-        };
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(); //몇개 입력할 것인지
+        
+        Job[] L = new Job[n]; // L이름의 Job형태 배열 생성
+        for(int i=0;i<n;i++)
+            L[i] = new Job(sc.nextInt(),sc.nextInt()); // 각 작업의 시작시간, 종료시간 입력
 
-        //이차원배열을 오름차순으로 정렬하는 코드
-        Arrays.sort(L, (a1, a2) -> { //정렬이 목적이 아니기 때문에 Arrays 함수를 이용..
-            if (a1[0] == a2[0]){
-                return a1[1] - a2[1]; //같은 시작시간일 경우 종료시간도 오름차순
+        Arrays.sort(L,Job.comparator); // 오름차순으로 정렬
+
+
+        System.out.println(L);
+
+
+
+        /*
+
+        while(L != ){
+
+        }
+
+
+
+       (a1, a2) -> { //정렬이 목적이 아니기 때문에 Arrays 함수를 이용..
+            if (a1.s == a2.s){
+                return a1.f - a2.f; //같은 시작시간일 경우 종료시간도 오름차순
             }
             else {
-                return a1[0] - a2[0]; //시작시간 순 정렬
+                return a1.s - a2.s; //시작시간 순 정렬
             }
-        });
-
-        System.out.println("주어진 작업들을 정렬 후 출력\n---------------");
-
-        PriorityQueue<Integer> pq = new PriorityQueue<>(); //우선순위큐를 만들어준다.
-        pq.add(L[0][1]); //큐에 첫작업의 종료시간을 넣는다.
 
 
-        for(int i = 0; i< L.length;i++) {
-            System.out.println(L[i][0]+ " "+ L[i][1]);
-        }
 
-        //peek은 첫번째 값을 반환
-        //poll은 첫번째 값을 반환하고 버림 -> peek하고 remove해버린다
 
-        int i = 1;
-        while( i < L.length) {
+ List<Job> L = Arrays.asList(
+                new Job(7,8),
+                new Job(3,7),
+                new Job(1,5),
+                new Job(5,9),
+                new Job(0,2),
+                new Job(6,8),
+                new Job(1,6)
+        );
 
-            if(pq.peek() <= L[i][0]){
-                pq.poll(); //작업의 시작시간이 큐의 peek 값보다 작거나 같으면, pq에서 하나 빼서 버린다.
-            }
-            pq.add(L[i][1]); //현재 종료시간을 다시 pq에 넣어준다.
 
-            i++;// 루프횟수를 알맞게 돌리기 위한 i 1증가
 
-        }
 
-        System.out.println("필요한 기계 대수는\n----------------");
-        System.out.println(pq.size());//pq에 남아있는 것들의 개수가 필요한 기계의 대수이다.
 
+        7
+7 8
+3 7
+1 5
+5 9
+0 2
+6 8
+1 6
+
+
+         */
 
 
 
