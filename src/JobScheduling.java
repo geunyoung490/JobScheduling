@@ -1,100 +1,56 @@
-import java.util.*;
+//2021.04.10 오름차순 정렬코드 작성, 출력
+//2021.04.12 while문 미완성 출력 이상하게 나옴...우선순위큐로 다시 짜야 할 듯
+//2021.04.13 수정 필요할 듯 하다.
+//2021.04.14 정답이 맞는지는 모르겠으나 출력은 잘 된다.
 
-
-class Job {
-    int s;
-    int f;
-    public Job(int i, int i1) {
-        this.s = s;
-        this.f = f;
-    }
-
-    //Line 1. 시작시간의 오름차순으로 정렬한 작업리스트 L
-    static Comparator<Job> comparator = new Comparator<Job>() {
-        @Override
-        public int compare(Job o1, Job o2) {
-            if(o1.s==o2.s) return Integer.compare(o1.f,o2.f);
-            else return Integer.compare(o1.s,o2.s);
-        }
-    };
-
-}
-
-
-/*
-class machine {
-    int machine(){
-
-
-    }
-}
-
- */
+import java.util.Arrays;
 
 public class JobScheduling {
-
-
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); //몇개 입력할 것인지
-        
-        Job[] L = new Job[n]; // L이름의 Job형태 배열 생성
-        for(int i=0;i<n;i++)
-            L[i] = new Job(sc.nextInt(),sc.nextInt()); // 각 작업의 시작시간, 종료시간 입력
+        int L[][] = {
+                {7, 8}, {3, 7}, {1, 5}, {5, 9}, {0, 2}, {6, 8}, {1, 6}
+                //{시작시간,종료시간}
+        };
 
-        Arrays.sort(L,Job.comparator); // 오름차순으로 정렬
+        //이차원배열을 오름차순으로 정렬하는 코드
+        Arrays.sort(L, (a1, a2) -> { //정렬이 목적이 아니기 때문에 Arrays 함수를 이용..
+            if (a1[0] == a2[0]) {
+                return a1[1] - a2[1]; //같은 시작시간일 경우 종료시간도 오름차순
+            } else {
+                return a1[0] - a2[0]; //시작시간 순 정렬
+            }
+        });
+
+        System.out.println("주어진 작업들을 정렬 후 출력\n---------------");
 
 
-        System.out.println(L);
-
-
-
-        /*
-
-        while(L != ){
-
+        System.out.println("정렬된 일거리들은");
+        for (int i = 0; i < L.length; i++) { //
+            System.out.println("{" +L[i][0] + " " + L[i][1]+ "}" );
         }
+        System.out.println("이다.\n이제 기계에 나눠서 일을 시키면\n");
 
+        int M=1; // 기계 넘버
 
+        int currentend = 0; //현재의 작업 종료시간을 처음에 0으로 설정해준다.
 
-       (a1, a2) -> { //정렬이 목적이 아니기 때문에 Arrays 함수를 이용..
-            if (a1.s == a2.s){
-                return a1.f - a2.f; //같은 시작시간일 경우 종료시간도 오름차순
+        for(int j = 0;  j<7; j++){
+            currentend = 0; // 기계2에서 시작하는 남아있는 다음 작업의 시작시간이랑 비교할 수 있게 초기화 해준다.
+
+            for(int i = 0; i<7;i++){
+
+                if (currentend <= L[i][0]) {
+                    System.out.println("기계" + M +"이  {"+ L[i][0]+" "+ L[i][1] + "} 작업을 수행한다.");
+                    currentend = L[i][1];
+                    L[i][0] = -1;// 이미 다른 기계가 맡은 일처리는 제거해버린다.
+                    L[i][1] = -1;
+
+                }
             }
-            else {
-                return a1.s - a2.s; //시작시간 순 정렬
-            }
 
-
-
-
- List<Job> L = Arrays.asList(
-                new Job(7,8),
-                new Job(3,7),
-                new Job(1,5),
-                new Job(5,9),
-                new Job(0,2),
-                new Job(6,8),
-                new Job(1,6)
-        );
-
-
-
-
-
-        7
-7 8
-3 7
-1 5
-5 9
-0 2
-6 8
-1 6
-
-
-         */
-
+            M++; //다른기계에 일을 준다. -> 기계넘버 올려서 다음 기계가 하게끔 한다.
+        }
 
 
     }
