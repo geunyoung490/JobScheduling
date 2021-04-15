@@ -133,7 +133,7 @@ public class JobScheduling {
 ```
 
 #### 실행 결과
-![KakaoTalk_20210415_142930747](https://user-images.githubusercontent.com/80522538/114818682-23522100-9df7-11eb-8362-d8069e25859e.jpg)
+![컴알작업](https://user-images.githubusercontent.com/80522538/114829508-21438e80-9e06-11eb-8231-33a005ddbf2d.jpg)
 
 ![job결과](https://user-images.githubusercontent.com/80522538/114818363-a6bf4280-9df6-11eb-8bfe-fb0a7ed5041d.PNG)
 
