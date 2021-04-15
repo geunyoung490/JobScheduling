@@ -93,7 +93,7 @@
 
 
 
-#### 2.1.2) 전체 코드(방법1)
+### 2.1.2) 전체 코드(방법1)
 
 ```java
 import java.util.*;
@@ -165,16 +165,16 @@ public class JobScheduling {
 
 
 
-#### 2.1.3) 출력결과 (방법1)
+### 2.1.3) 출력결과 (방법1)
 
 ![image](https://user-images.githubusercontent.com/80590172/114836832-0117cd80-9e0e-11eb-895b-74675c64348e.png)
 
 ---
 
-## 2.1) Job Scheduling Algoritnm code(방법2)
+## 2.2) Job Scheduling Algoritnm code(방법2)
 
 
-### 2.1.1) 세부 코드 설명(방법2)
+### 2.2.1) 세부 코드 설명(방법2)
 
 
 **1. 배열 초기화 및 배열정렬**
