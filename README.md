@@ -132,9 +132,9 @@ public class JobScheduling {
 ```
 
 #### 실행 결과
-![KakaoTalk_20210413_160425138](https://user-images.githubusercontent.com/80522538/114818357-a4f57f00-9df6-11eb-9ac9-873241696d41.jpg)
-![job결과](https://user-images.githubusercontent.com/80522538/114818363-a6bf4280-9df6-11eb-8bfe-fb0a7ed5041d.PNG)
+![KakaoTalk_20210415_142930747](https://user-images.githubusercontent.com/80522538/114818682-23522100-9df7-11eb-8362-d8069e25859e.jpg)
 
+![job결과](https://user-images.githubusercontent.com/80522538/114818363-a6bf4280-9df6-11eb-8bfe-fb0a7ed5041d.PNG)
 
 
 #### 성능 비교
