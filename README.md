@@ -267,7 +267,7 @@ public class JobScheduling {
 
 
 
-![캡처](C:\Users\Choi\Desktop\INU\2-1\컴퓨터알고리즘-김동훈\6주차\JobScheduling\캡처.JPG)
+![캡처](https://user-images.githubusercontent.com/75067408/114834885-f6f4cf80-9e0b-11eb-8f93-60a4543bf9dd.JPG)
 
 
 
