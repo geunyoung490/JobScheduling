@@ -162,9 +162,7 @@ public class JobScheduling {
 
 #### 2.1.3) 출력결과 (방법1)
 
-![job결과](https://user-images.githubusercontent.com/80522538/114818363-a6bf4280-9df6-11eb-8bfe-fb0a7ed5041d.PNG)
-
-
+![캡처](https://user-images.githubusercontent.com/75067408/114834643-b7c67e80-9e0b-11eb-8bed-24d8a0ca6459.JPG)
 
 
 
