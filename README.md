@@ -38,7 +38,7 @@
 ## 2.1) Job Scheduling Algoritnm code(방법1)
 
 
-#### 2.1.1) 세부 코드 설명(방법1)
+### 2.1.1) 세부 코드 설명(방법1)
 
 
 
@@ -174,7 +174,7 @@ public class JobScheduling {
 ## 2.1) Job Scheduling Algoritnm code(방법2)
 
 
-#### 2.1.1) 세부 코드 설명(방법2)
+### 2.1.1) 세부 코드 설명(방법2)
 
 
 **1. 배열 초기화 및 배열정렬**
