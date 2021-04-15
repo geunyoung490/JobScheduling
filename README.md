@@ -4,6 +4,8 @@
  
 ## Job Scheduling
  가장 적은 개수의 ```기계```를 사용하여 ```Task```간의 충돌이 발생하지 않도록 모든 작업을 기계에 할당
+ ![KakaoTalk_20210415_132511618](https://user-images.githubusercontent.com/80522538/114818795-5a283700-9df7-11eb-99b2-046a6a5055c5.jpg)
+
  
 #### 알고리즘
  1. Task를 ```시작 시간을 기준```으로 ```오름차순```으로 정렬
@@ -46,7 +48,6 @@
 가장 이른 시작 시간을 가진 Task를 수행 시간이 중복되지 않게 수행 할 기계를 찾아서 배정</br>
 수행 할 기계가 있으면 그 기계에 배정</br>
 없으면 새로운 기계에 Task를 배정</br>
-![KakaoTalk_20210413_160425218](https://user-images.githubusercontent.com/80522538/114818389-ae7ee700-9df6-11eb-8bca-a79b49fc3818.jpg)
 
     
 3. 기계에 번호를 할당하고 업무 배정 
