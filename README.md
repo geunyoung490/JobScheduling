@@ -64,4 +64,4 @@ public class JobScheduling {
 
 ## 출력결과
 
-![캡처](C:\Users\Choi\Desktop\INU\2-1\컴퓨터알고리즘-김동훈\6주차\캡처.JPG)
+![캡처](C:\Users\Choi\Desktop\INU\2-1\컴퓨터알고리즘-김동훈\6주차\JobScheduling\캡처.JPG)
