@@ -6,7 +6,7 @@ class Job{
 }
 public class JobScheduling {
     public static int L[][] = {{7,8},{3,7},{1,5},{5,9},{0,2},{6,8},{1,6}};
-    public static ArrayList<Job>[] list = new ArrayList[5];
+    public static ArrayList<Job>[] task = new ArrayList[5];
     public static int M=0;// 기계 수
     public static int Operating(int start){
         int i =0;
@@ -15,7 +15,7 @@ public class JobScheduling {
             for( i=0;i<M;i++){
                 //업무를 수행하고 있는 기계가 있고
                 //그 기계가 다음 업무를 수행할 수 있는 경우 해당 기계 배치
-                if(list[i].size()>0 && list[i].get(list[i].size()-1).finished<=start){
+                if(task[i].size()>0 && task[i].get(task[i].size()-1).finished<=start){
                     return i;
                 }
             }
@@ -31,16 +31,16 @@ public class JobScheduling {
     }
     public static void Scheduling(int n) {
         for(int j =0; j<5 ;j++){
-            list[j] = new ArrayList<Job>();
+            task[j] = new ArrayList<Job>();
         }
 
         int i = 0;
         while (i < n) {
             //기계번호를 할당 받고, 해당 기계에 업무 배정
             int machineNum = Operating(L[i][0]);
-            list[machineNum].add(new Job());
-            list[machineNum].get(list[machineNum].size()-1).start = L[i][0];
-            list[machineNum].get(list[machineNum].size()-1).finished = L[i][1];
+            task[machineNum].add(new Job());
+            task[machineNum].get(task[machineNum].size()-1).start = L[i][0];
+            task[machineNum].get(task[machineNum].size()-1).finished = L[i][1];
             i++;
         }
     }
@@ -56,11 +56,11 @@ public class JobScheduling {
         System.out.println("기계의 수: "+M);
 
         for(int i =0;i<M;i++){
-            if(list[i].size()!=0)
+            if(task[i].size()!=0)
             {
                 System.out.println("기계번호: "+i);
-                for(int j =0;j<list[i].size();j++){
-                    System.out.print("["+list[i].get(j).start+", "+list[i].get(j).finished+"]  ");
+                for(int j =0;j<task[i].size();j++){
+                    System.out.print("["+task[i].get(j).start+", "+task[i].get(j).finished+"]  ");
                 }
                 System.out.println();
             }
