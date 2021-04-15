@@ -20,7 +20,7 @@
 ---
 ### 알고리즘 코드
  1. 시작시간 오름차순으로 정렬
- ```
+ ```java
  Arrays.sort(L, (a,b) -> {
           if (a[0] != b[0]) return a[0] - b[0];
           else return a[1] - b[1];
@@ -28,7 +28,7 @@
  ```
  
  2. Task를 기계에 배정
- ```
+ ```java
  if(M>0){
             for( i=0;i<M;i++){
                 if(list[i].size()>0 && list[i].get(list[i].size()-1).finished<=start){
@@ -51,7 +51,7 @@
 
     
 3. 기계에 번호를 할당하고 업무 배정 
- ```
+ ```java
  while (i < n) {
             int machineNum = Operating(L[i][0]);
             list[machineNum].add(new Job());
@@ -64,7 +64,7 @@
 
 ---
 ### 전체 코드
-```
+```java
 import java.util.*;
 
 class Job{
