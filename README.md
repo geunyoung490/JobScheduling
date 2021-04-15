@@ -44,8 +44,10 @@
 ``` 
     
 가장 이른 시작 시간을 가진 Task를 수행 시간이 중복되지 않게 수행 할 기계를 찾아서 배정</br>
-수행 할 기계가 있으면 그 기계에 배정
-없으면 새로운 기계에 Task를 배정
+수행 할 기계가 있으면 그 기계에 배정</br>
+없으면 새로운 기계에 Task를 배정</br>
+![KakaoTalk_20210413_160425218](https://user-images.githubusercontent.com/80522538/114818389-ae7ee700-9df6-11eb-8bca-a79b49fc3818.jpg)
+
     
 3. 기계에 번호를 할당하고 업무 배정 
  ```
@@ -130,6 +132,9 @@ public class JobScheduling {
 ```
 
 #### 실행 결과
+![KakaoTalk_20210413_160425138](https://user-images.githubusercontent.com/80522538/114818357-a4f57f00-9df6-11eb-9ac9-873241696d41.jpg)
+![job결과](https://user-images.githubusercontent.com/80522538/114818363-a6bf4280-9df6-11eb-8bfe-fb0a7ed5041d.PNG)
+
 
 
 #### 성능 비교
