@@ -131,10 +131,11 @@ public class JobScheduling {
 
 #### 실행 결과
 
+
 #### 성능 비교
  - ```n개```의 Task를 정렬하는데 걸리는 시간 
     - ```O(nlogn)``` </br>
- -Task n개가 돌아가는 시간
+ - Task n개가 돌아가는 시간
     - ```O(mn)```
 
  -> 시간 복잡도는 ```O(nlogn) + O(mn)```이다.(m이 변수이므로 이대로 놔둔다.) 
