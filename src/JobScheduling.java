@@ -35,10 +35,10 @@ public class JobScheduling {
 
         int currentend = 0; //현재의 작업 종료시간을 처음에 0으로 설정해준다.
 
-        for(int j = 0;  j<7; j++){
+        for(int j = 0;  j<L.length; j++){
             currentend = 0; // 기계2에서 시작하는 남아있는 다음 작업의 시작시간이랑 비교할 수 있게 초기화 해준다.
 
-            for(int i = 0; i<7;i++){
+            for(int i = 0; i<L.length;i++){
 
                 if (currentend <= L[i][0]) {
                     System.out.println("기계" + M +"이  {"+ L[i][0]+" "+ L[i][1] + "} 작업을 수행한다.");
