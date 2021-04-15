@@ -3,10 +3,11 @@
 ## 1.1) 그리디 알고리즘이란?
 
 
-
  **탐욕 알고리즘**이라고도 불리며  최적화 문제를 해결하는 알고리즘으로 가능한 해들 중에서 가장 좋은 해를 찾는 알고리즘이다. 그래서 단순하지만 현재상황에서만큼은 알맞은 문제 해결 방법이다.
 
  최종적으로 봤을 때 최고의 선택이 아닐 수 있지만 현재 상황에서 지금 당장 좋은 것을 고르는 방법이다.  이러한 선택을 **근시안적인 선택**이라고 말하기도 한다.  
+ 
+ ---
 
 ## 1.2) Job Scheduling
 
@@ -18,7 +19,7 @@
   1. Task를 ```시작 시간```을 기준으로 ```오름차순```으로 정렬
   2. 순서대로 업무를 수행할 수 있는 기계가 있으면 기계에 배정
   3. 없으면 새로운 기계에 배정
-  4. 들어간 Task는 List에서 제거
+  4. 들어간 Task는 List에서 제거(**그러나 전체코드(방법1)의 경우 ```L```에서 task를 제거하지 않았다.**)
 
 
 
@@ -27,11 +28,13 @@
  - 작업의 수 (입력의 크기)
  - 각 작업의 시작 시간과 종료 시간 (작업의 길이 = 종료시간 - 시작시간)
 
-
+---
 
 # 2. 알고리즘 구현코드 
 
+
 ## 2.1) 알고리즘 코드(방법1)
+
 
 #### 2.1.1) 세부 코드(방법1)
 
@@ -53,7 +56,7 @@
  ```java
  if(M>0){
             for( i=0;i<M;i++){
-                if(list[i].size()>0 && list[i].get(list[i].size()-1).finished<=start){
+                if(task[i].size()>0 && task[i].get(list[i].size()-1).finished<=start){
                     return i;
                 }
             }
@@ -67,9 +70,9 @@
     }
  ```
 
-가장 이른 시작 시간을 가진 Task를 수행 시간이 중복되지 않게 수행 할 기계를 찾아서 배정</br>
+가장 이른 시작 시간을 가진 ```Task```를 수행 시간이 중복되지 않게 수행 할 기계를 찾아서 배정</br>
 수행 할 기계가 있으면 그 기계에 배정</br>
-없으면 새로운 기계에 Task를 배정</br>
+없으면 새로운 기계에 ```Task```를 배정</br>
 
 
 
@@ -78,9 +81,9 @@
  ```java
  while (i < n) {
             int machineNum = Operating(L[i][0]);
-            list[machineNum].add(new Job());
-            list[machineNum].get(list[machineNum].size()-1).start = L[i][0];
-            list[machineNum].get(list[machineNum].size()-1).finished = L[i][1];
+            task[machineNum].add(new Job());
+            task[machineNum].get(task[machineNum].size()-1).start = L[i][0];
+            task[machineNum].get(task[machineNum].size()-1).finished = L[i][1];
             i++;
         }
     }
@@ -99,7 +102,7 @@ class Job{
 }
 public class JobScheduling {
     public static int L[][] = {{7,8},{3,7},{1,5},{5,9},{0,2},{6,8},{1,6}};
-    public static ArrayList<Job>[] list = new ArrayList[5];
+    public static ArrayList<Job>[] task = new ArrayList[5];
     public static int M=0;// 기계 수
     public static int Operating(int start){
         int i =0;
@@ -107,7 +110,7 @@ public class JobScheduling {
         if(M>0){
             for( i=0;i<M;i++){
                
-                if(list[i].size()>0 && list[i].get(list[i].size()-1).finished<=start){
+                if(task[i].size()>0 && task[i].get(task[i].size()-1).finished<=start){
                     return i;
                 }
             }   
@@ -121,15 +124,15 @@ public class JobScheduling {
     }
     public static void Scheduling(int n) {
         for(int j =0; j<5 ;j++){
-            list[j] = new ArrayList<Job>();
+            task[j] = new ArrayList<Job>();
         }
 
         int i = 0;
         while (i < n) {
             int machineNum = Operating(L[i][0]);
-            list[machineNum].add(new Job());
-            list[machineNum].get(list[machineNum].size()-1).start = L[i][0];
-            list[machineNum].get(list[machineNum].size()-1).finished = L[i][1];
+            task[machineNum].add(new Job());
+            task[machineNum].get(task[machineNum].size()-1).start = L[i][0];
+            task[machineNum].get(task[machineNum].size()-1).finished = L[i][1];
             i++;
         }
     }
@@ -145,11 +148,11 @@ public class JobScheduling {
         System.out.println("기계의 수: "+M);
 
         for(int i =0;i<M;i++){
-            if(list[i].size()!=0)
+            if(task[i].size()!=0)
             {
                 System.out.println("기계번호: "+i);
-                for(int j =0;j<list[i].size();j++){
-                    System.out.print("["+list[i].get(j).start+", "+list[i].get(j).finished+"]  ");
+                for(int j =0;j<task[i].size();j++){
+                    System.out.print("["+task[i].get(j).start+", "+task[i].get(j).finished+"]  ");
                 }
                 System.out.println();
             }
@@ -164,11 +167,13 @@ public class JobScheduling {
 
 ![캡처](https://user-images.githubusercontent.com/75067408/114834643-b7c67e80-9e0b-11eb-8bed-24d8a0ca6459.JPG)
 
-
+---
 
 ## 2.2) 알고리즘 코드(방법2)
 
+
 #### 2.2.1) 세부 코드(방법2)
+
 
 **1. 배열 초기화 및 배열정렬**
 
